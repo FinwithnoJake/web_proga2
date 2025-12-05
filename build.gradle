@@ -31,4 +31,5 @@ dependencies {
 war {
   archiveBaseName.set('web_2')
   archiveVersion.set(version)
+  destinationDirectory = file('/opt/wildfly/standalone/deployments/')
 }

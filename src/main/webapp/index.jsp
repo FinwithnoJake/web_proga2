@@ -4,16 +4,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Catlab</title>
+    <title>Hehe-web2</title>
     <link rel="stylesheet" href="static/stylesheets/stylesheet.css">
     <link rel="stylesheet" href="static/stylesheets/header.css">
     <link rel="stylesheet" href="static/stylesheets/footer.css">
     <link rel="stylesheet" href="static/stylesheets/form.css">
     <link rel="stylesheet" href="static/stylesheets/table.css">
     <link rel="icon" href="static/imgs/favicon.ico" type="image/x-icon">
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <script src="static/js/jquery-3.7.1.min.js"></script>
     <script type="module" src="static/js/index.js"></script>
-    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 </head>
 <body>
 <header>
@@ -60,15 +60,22 @@
             </form>
         </div>
         <div>
-            <div id="calculator" class="graph" style="width: 400px; height: 400px;"></div>
+            <div id="calculator" class="graph" style="width: 400px; height: 400px;  border: 2px solid #ccc; background: #f9f9f9;">
+            </div>
         </div>
     </div>
     <jsp:include page="resultTable.jsp"/>
 
 <footer>
     <a href="https://github.com/FinwithnoJake/web_proga2">
-        <img src="static/imgs/catty.avif">
+        <img src="static/imgs/forfooter.png">
     </a>
 </footer>
+
+<script>
+    console.log("Проверка Desmos API:", typeof Desmos);
+    console.log("Элемент calculator:", document.getElementById('calculator'));
+</script>
+
 </body>
 </html>

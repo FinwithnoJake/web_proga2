@@ -1,6 +1,13 @@
-import {draw_point, draw_graph, get_click_coordinates, clear_blank} from "./graph.js";
+import {draw_point, draw_graph, get_click_coordinates, clear_blank, init_calculator} from "./graph.js";
 
 window.addEventListener("load", load_points);
+window.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM загружен, инициализируем Desmos...");
+    init_calculator();
+
+    draw_graph(2);
+    load_points();
+});
 
 const message_type = Object.freeze({
     OK: 1,
@@ -28,7 +35,7 @@ document.getElementsByName("r").forEach(e => {
     e.addEventListener("change", () => {
         clear_blank()
         selected_r = e.value;
-        if(selected_r>=1 && selected_r <=4){
+        if(selected_r>=2 && selected_r <=5){
             draw_graph(Number(selected_r));
         }
         else {
@@ -136,8 +143,8 @@ function show_user_message(message) {
 // Функция валидации данных формы
 function validate_data(x, y, r) {
     if (x == null || y == null || r == null || y === "" || r === "") return message_type.EMPTY_FIELDS;
-    if(y< -3 || y > 3) return message_type.Y_ERROR
-    if(r<2 || r>5) return message_type.R_ERROR
+    if(y < -3 || y > 3) return message_type.Y_ERROR
+    if(r < 2 || r > 5) return message_type.R_ERROR
     return message_type.OK;
 }
 

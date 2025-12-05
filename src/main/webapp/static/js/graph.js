@@ -1,3 +1,38 @@
+let calculator = null;
+let elt = null;
+
+// Инициализация Desmos
+export function init_calculator() {
+    console.log("Инициализируем Desmos...");
+    elt = document.getElementById('calculator');
+
+    if (!elt) {
+        console.error("Элемент #calculator не найден!");
+        return null;
+    }
+
+    if (typeof Desmos === 'undefined') {
+        console.error("Desmos API не загружен!");
+        return null;
+    }
+
+    calculator = Desmos.GraphingCalculator(elt, {
+        keypad: false,
+        expressions: false,
+        settingsMenu: false,
+        lockViewport: false, // ← измени на false
+        zoomFit: false,      // ← измени на false
+        pointsOfInterest: false,
+        trace: false,
+        xAxisStep: 1,
+        yAxisStep: 1,
+        showGrid: true
+    });
+
+    console.log("Desmos инициализирован!");
+    return calculator;
+}
+
 const elt = document.getElementById('calculator');
 const calculator = Desmos.GraphingCalculator(elt, {
     keypad: false,
@@ -11,6 +46,10 @@ const calculator = Desmos.GraphingCalculator(elt, {
     yAxisStep: 1,
     // showGrid: false
 });
+
+
+
+
 let pointIds = [];
 export function clear_blank(){
     calculator.setBlank();
@@ -31,40 +70,62 @@ export function draw_point(point, color){
 }
 
 export function draw_graph(r) {
+    if (!calculator) initCalculator();
+    calculator.setBlank();
+
     let k = r
+
     calculator.setExpression({
         id: 'k',
         latex: 'k=' + k.toString()
     });
+
     calculator.setExpression({
         id: 's',
         latex: '\\s(x)=\\sqrt{(\\abs(x*k/7))/(x*k/7)}',
         hidden: true
     });
+
+    // 2 четверть: треугольник
     calculator.setExpression({
-        id: 'graph2',
-        latex: 'y<=\\{0<=y<=k\\}\\{-k<=x<=0:-k+x\\}',
-        color: 'blue'
+        id: 'triangle',
+        latex: 'y <= x + ${k} \\{ x >= -${k} \\} \\{ y >= 0 : 1',
+        color: '#1638b2',
+        lines: false,
+        fillOpacity: 0.5
     });
+
+    // 3 четверть: прямоугольник
     calculator.setExpression({
-        id: 'graph3',
-        latex: 'x=\\{-k/2<=x<=0\\}\\{0>=y>=-k:-k\\}',
-        color: 'blue'
+        id: 'rect',
+        latex: 'x >= -${k/2} \\{ y >= -${k} : 1 \\{ x <= 0 : 1 \\{ y <= 0 : 1',
+        color: '#1638b2',
+        lines: false,
+        fillOpacity: 0.5
     });
+
+    // 4 четверть: круг
     calculator.setExpression({
-        id: 'graph4',
-        latex: 'y>\\{-k<=y<=0\\}\\{0>=x>=-k:-k\\}',
-        color: 'blue'
+        id: 'circle',
+        latex: 'x^2 + y^2 <= ${(k/2)*(k/2)} \\{ x >= 0 \\} \\{ y <= 0 : 1',
+        color: '#1638b2',
+        lines: false,
+        fillOpacity: 0.5
     });
+
+    // Оси
     calculator.setExpression({
-        id: 'graph5',
-        latex: 'y=\\{0>=x>=-k:-k\\}',
-        color: 'blue'
+        id: 'xaxis',
+        latex: 'y = 0',
+        color: 'black',
+        lineWidth: 1
     });
+
     calculator.setExpression({
-        id: 'graph6',
-        latex: 'x^2+y^2<=\\{x>=0\\}\\{y<=0: (k/2)^2\\}',
-        color: 'blue'
+        id: 'yaxis',
+        latex: 'x = 0',
+        color: 'black',
+        lineWidth: 1
     });
 
     calculator.setMathBounds({
@@ -72,5 +133,11 @@ export function draw_graph(r) {
         right: r + 1,
         bottom: -r - 1,
         top: r + 1
+    });
+
+    calculator.updateSettings({
+        xAxisStep: 1,
+        yAxisStep: 1,
+        showGrid: true
     });
 }

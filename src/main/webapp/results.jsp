@@ -24,7 +24,7 @@
 <script type="text/javascript" src="static/js/index.js"></script>
 <footer>
     <a href="https://github.com/FinwithnoJake/web_proga2">
-        <img src="static/imgs/catty.avif">
+        <img src="static/imgs/forfooter.png">
     </a>
 </footer>
 </body>

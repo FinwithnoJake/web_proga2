@@ -31,8 +31,9 @@ public class AreaCheckServlet extends HttpServlet {
             return;
         }
 
-
         data.addRPoint(pointBean);
+        pointBean.setHit(isHit(pointBean));
+
         req.getSession().setAttribute("data", data);
         if (redirect) {
             resp.sendRedirect(req.getContextPath() + "/results.jsp");
@@ -52,16 +53,23 @@ public class AreaCheckServlet extends HttpServlet {
         double x = pointBean.getX();
         double y = pointBean.getY();
         double r = pointBean.getR();
-        if (x >= 0 && y >= 0) {
-            return x <= r/2 && y <= r;
-        }
 
+        // 2 четверть - треугольник под y = x + r
         if (x <= 0 && y >= 0) {
-            return x >= -r && y <= r/2 && y <= x/2 + r/2;
+            // Треугольник ограничен: x ≥ -r, y ≤ r, y ≤ x + r
+            return x >= -r && y <= r && y <= x + r;
         }
 
+        // 3 четверть - прямоугольник
         if (x <= 0 && y <= 0) {
-            return x >= r / 2 && y >= r / 2 && (Math.pow(x, 2) + Math.pow(y, 2) - Math.pow(r, 2) > 0);
+            // Прямоугольник: x ≥ -r/2, y ≥ -r
+            return x >= -r/2 && y >= -r;
+        }
+
+        // 4 четверть - кусок круга радиусом r/2
+        if (x >= 0 && y <= 0) {
+            // Круг радиусом r/2, центр (0,0)
+            return (x * x + y * y) <= (r/2) * (r/2);
         }
 
         return false;
