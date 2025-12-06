@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lab2</title>
-    <link rel="stylesheet" href="static/stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="static/stylesheets/styles.css">
     <link rel="stylesheet" href="static/stylesheets/header.css">
     <link rel="stylesheet" href="static/stylesheets/footer.css">
     <link rel="stylesheet" href="static/stylesheets/form.css">

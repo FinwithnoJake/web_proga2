@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hehe-web2</title>
-    <link rel="stylesheet" href="static/stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="static/stylesheets/styles.css">
     <link rel="stylesheet" href="static/stylesheets/header.css">
     <link rel="stylesheet" href="static/stylesheets/footer.css">
     <link rel="stylesheet" href="static/stylesheets/form.css">
@@ -17,7 +17,7 @@
 </head>
 <body>
 <header>
-    <pre class="head_pre">Колодей Елизавета<br>P3207<br>757493</pre>
+    <pre class="header">Колодей Елизавета<br>P3207<br>757493</pre>
 </header>
     <p id="error_field" style="margin-top: 100px"></p>
     <div class="first-row">
@@ -49,10 +49,10 @@
 
             </div>
             <div class="form_input">
-                <input name="y" type="text" style="margin: 5px" min="-3" max="3" placeholder="Введите y:" maxlength="10">
+                <input name="y" type="text" style="margin: 5px" min="-3" max="3" placeholder="Введите y: (от -3 до 3)" maxlength="10">
             </div>
             <div class="form_input">
-                <input name="r" type="text" style="margin: 5px" min="2" max="5" placeholder="Введите R:" maxlength="10">
+                <input name="r" type="text" style="margin: 5px" min="2" max="5" placeholder="Введите R: (от 2 до 5)" maxlength="10">
             </div>
             <div class="form_input">
                 <input type="submit" class="submit-button" id="submit_button" value="Send">

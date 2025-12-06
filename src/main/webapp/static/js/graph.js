@@ -1,13 +1,12 @@
 let calculator = null;
 let elt = null;
 
-// Инициализация Desmos
 export function init_calculator() {
     console.log("Инициализируем Desmos...");
     elt = document.getElementById('calculator');
 
     if (!elt) {
-        console.error("Элемент #calculator не найден!");
+        console.error("Элемент calculator не найден!");
         return null;
     }
 
@@ -20,7 +19,7 @@ export function init_calculator() {
         keypad: false,
         expressions: false,
         settingsMenu: false,
-        lockViewport: false, // ← измени на false
+        lockViewport: true,
         zoomFit: false,      // ← измени на false
         pointsOfInterest: false,
         trace: false,
@@ -33,7 +32,7 @@ export function init_calculator() {
     return calculator;
 }
 
-const elt = document.getElementById('calculator');
+/*const elt = document.getElementById('calculator');
 const calculator = Desmos.GraphingCalculator(elt, {
     keypad: false,
     expressions: false,
@@ -46,11 +45,11 @@ const calculator = Desmos.GraphingCalculator(elt, {
     yAxisStep: 1,
     // showGrid: false
 });
-
-
-
-
 let pointIds = [];
+*/
+
+
+
 export function clear_blank(){
     calculator.setBlank();
 }
@@ -70,8 +69,12 @@ export function draw_point(point, color){
 }
 
 export function draw_graph(r) {
-    if (!calculator) initCalculator();
+    if (!calculator) init_calculator();
     calculator.setBlank();
+
+    calculator.removeExpression({id: 'triangle'});
+    calculator.removeExpression({id: 'rect'});
+    calculator.removeExpression({id: 'circle'});
 
     let k = r
 
@@ -80,16 +83,10 @@ export function draw_graph(r) {
         latex: 'k=' + k.toString()
     });
 
-    calculator.setExpression({
-        id: 's',
-        latex: '\\s(x)=\\sqrt{(\\abs(x*k/7))/(x*k/7)}',
-        hidden: true
-    });
-
     // 2 четверть: треугольник
     calculator.setExpression({
         id: 'triangle',
-        latex: 'y <= x + ${k} \\{ x >= -${k} \\} \\{ y >= 0 : 1',
+        latex: `y <= x + ${k} \\{ x <= 0 \\} \\{ y >= 0 : 1\\}`,
         color: '#1638b2',
         lines: false,
         fillOpacity: 0.5
@@ -98,7 +95,7 @@ export function draw_graph(r) {
     // 3 четверть: прямоугольник
     calculator.setExpression({
         id: 'rect',
-        latex: 'x >= -${k/2} \\{ y >= -${k} : 1 \\{ x <= 0 : 1 \\{ y <= 0 : 1',
+        latex: `x >= -${k/2} \\{ y >= -${k} : 1\\} \\{ x <= 0 : 1\\} \\{ y <= 0 : 1\\}`,
         color: '#1638b2',
         lines: false,
         fillOpacity: 0.5
@@ -107,7 +104,7 @@ export function draw_graph(r) {
     // 4 четверть: круг
     calculator.setExpression({
         id: 'circle',
-        latex: 'x^2 + y^2 <= ${(k/2)*(k/2)} \\{ x >= 0 \\} \\{ y <= 0 : 1',
+        latex: `x^2 + y^2 <= ${(k/2)*(k/2)} \\{ x >= 0 \\} \\{ y <= 0 : 1\\}`,
         color: '#1638b2',
         lines: false,
         fillOpacity: 0.5

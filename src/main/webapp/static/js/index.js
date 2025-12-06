@@ -1,14 +1,5 @@
 import {draw_point, draw_graph, get_click_coordinates, clear_blank, init_calculator} from "./graph.js";
 
-window.addEventListener("load", load_points);
-window.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM загружен, инициализируем Desmos...");
-    init_calculator();
-
-    draw_graph(2);
-    load_points();
-});
-
 const message_type = Object.freeze({
     OK: 1,
     EMPTY_FIELDS: 2,
@@ -19,6 +10,15 @@ const message_type = Object.freeze({
 });
 
 let selected_r = null;
+
+window.addEventListener("load", load_points);
+window.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM загружен, инициализируем Desmos...");
+    init_calculator();
+    draw_graph(2);
+    load_points();
+});
+
 document.getElementById('calculator').addEventListener('click', async function (evt) {
     if (selected_r == null) {
         show_user_message(message_type.CHOOSE_R);
@@ -111,6 +111,7 @@ function add_data_to_history(x, y, r, hit, execution_time, real_time) {
         y.toFixed(2).toString(),
         r.toFixed(2).toString(),
         hit ? "Попал" : "Промазал",
+        new Date().toLocaleTimeString()
     ].forEach(value => newRow.insertCell().textContent = value);
 }
 

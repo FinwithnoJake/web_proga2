@@ -1,3 +1,9 @@
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .custom-button {
     background-color: rgb(242, 153, 196);
     color: white;
@@ -10,17 +16,18 @@
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
+    width: auto;
+    margin-right: 1%;
 }
 
-.custom-button {
-    width: auto; /* Автоматическое определение ширины */
-    margin-right: 1%; /* Отступы между кнопками */
+.custom-checkbox:checked + .custom-button {
+    background-color: rgb(237, 116, 175);
 }
 
-.submit-button {
-    width: 200px;
-    margin: 20px auto; /* Центрирование кнопки */
-    display: block;
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
 .custom-button:hover {
@@ -36,11 +43,11 @@
 }
 
 input[type="text"], textarea {
-    padding: 10%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    max-width: 80px;
+    max-width: 210px;
 }
 
 input[type="text"]:focus, textarea:focus {

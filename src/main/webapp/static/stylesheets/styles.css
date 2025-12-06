@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,14 +15,13 @@ body{
 
 }
 
-
 .first-row{
     display: flex;
     flex-direction: row;
-    padding: 10%;
+    padding: 80px;
     width: 80%;
-    margin-top: 15%;
-    margin-bottom: 5%;
+    margin-top: 10px;
+    margin-bottom: 20px;
     border-radius: 30px;
     background-color: rgba(242, 153, 196, 0.5);
     flex: 1;
@@ -33,61 +32,51 @@ body{
 }
 
 .container{
-    width: 50%;
+    width: 70%;
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
-    margin: 5% 0 0 5%;
+    margin: 10px 0 0 10px;
     font-size: 20px;
-}
 
+}
 
 .cordsText{
     margin: 0;
+    margin-bottom: 10px;
+
 }
 
-.form {
-    display: flex;
-    align-items: center;
-}
-
-@media (max-width: 770px) {
-    .container{
-        width: 100%;
-        align-content: center;
-    }
-
-    .first-row{
-        flex-direction: column;
-    }
-    
-}
-
-@media (max-width: 480px) {
-    .form{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-}
 .form p {
-    white-space: nowrap;
     margin-right: 10px;
 }
 
-
 .graph{
-    display: block;
-    height: 70%;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    object-position: center;
+    border: 5px solid rgb(107, 163, 209);
+    border-radius: 1px;
+    margin-left: 20px;
 }
 
-@media (min-width: 771px) {
-    .graph:hover{
-        transform: scale(1.2);
-    }
+#error_field {
+    visibility: hidden;
+    background-color: #ea3267;
+    border-radius: 10px;
+    border: 2px solid red;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 400px;
 }
-
+.back{
+    background-color: rgb(242, 153, 196);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

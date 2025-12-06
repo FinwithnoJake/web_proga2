@@ -1,3 +1,31 @@
+header{
+    top: 0;
+    height: 90px;
+    width: 100%;
+    padding: 10px 0 0 0;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    background-color: rgb(242, 153, 196);
+    z-index: 1000;
+}
+
+header pre{
+    font-family: cursive;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 19px;
+}
+
+header:hover{
+    box-shadow: 0 0 50px rgb(242, 153, 196);
+}
+
+header pre:hover{
+    transform: scale(1.2);
+}
+
 .page-header{
     position: fixed;
     top: 0;
@@ -31,22 +59,4 @@
 
 .page-header p {
     font-size: 18px;
-}
-
-header:hover{
-    box-shadow: 0 0 50px rgb(255, 105, 180);
-}
-
-header pre:hover{
-    transform: scale(1.2);
-}
-@media (max-width: 768px) {
-    header {
-        height: 80px;
-        padding: 5px 0;
-    }
-
-    header pre {
-        font-size: 16px;
-    }
 }
