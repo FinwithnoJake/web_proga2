@@ -30,6 +30,10 @@ dependencies {
 
 war {
   archiveBaseName.set('web_2')
-  archiveVersion.set(version)
+  archiveVersion.set('')
   destinationDirectory = file('/opt/wildfly/standalone/deployments/')
+
+  doFirst {
+    delete fileTree(dir: destinationDirectory, includes: ['web_2.war'])
+  }
 }

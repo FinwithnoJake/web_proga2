@@ -20,7 +20,7 @@ export function init_calculator() {
         expressions: false,
         settingsMenu: false,
         lockViewport: true,
-        zoomFit: false,      // ← измени на false
+        zoomFit: false,
         pointsOfInterest: false,
         trace: false,
         xAxisStep: 1,
@@ -31,24 +31,6 @@ export function init_calculator() {
     console.log("Desmos инициализирован!");
     return calculator;
 }
-
-/*const elt = document.getElementById('calculator');
-const calculator = Desmos.GraphingCalculator(elt, {
-    keypad: false,
-    expressions: false,
-    settingsMenu: false,
-    lockViewport: true,
-    zoomFit: true,
-    pointsOfInterest: false,
-    trace: false,
-    xAxisStep: 1,
-    yAxisStep: 1,
-    // showGrid: false
-});
-let pointIds = [];
-*/
-
-
 
 export function clear_blank(){
     calculator.setBlank();

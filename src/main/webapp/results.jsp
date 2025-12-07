@@ -3,16 +3,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Lab2</title>
+    <title>Hehe-web2</title>
     <link rel="stylesheet" href="static/stylesheets/styles.css">
     <link rel="stylesheet" href="static/stylesheets/header.css">
     <link rel="stylesheet" href="static/stylesheets/footer.css">
     <link rel="stylesheet" href="static/stylesheets/form.css">
     <link rel="stylesheet" href="static/stylesheets/table.css">
+    <link rel="icon" href="static/imgs/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<header>
-    <pre class="head_pre">Колодей Елизавета<br>P3207<br>757493</pre>
+<header class="page-header">
+    <div class="header-content">
+        <h1>Колодей Елизавета Владимировна</h1>
+        <p>Группа: P3207</p>
+        <p>Вариант: 757493</p>
+    </div>
 </header>
 <section class="main_content" style="display: flex; justify-content: center; flex-direction: column;">
 

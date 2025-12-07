@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
 
 public class AreaCheckServlet extends HttpServlet {
 
@@ -19,7 +18,6 @@ public class AreaCheckServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PointBean pointBean = new PointBean();
-        pointBean.setTime(LocalDateTime.now());
         boolean redirect;
         try {
             pointBean.setX(Double.parseDouble(req.getParameter("X")));
@@ -56,22 +54,22 @@ public class AreaCheckServlet extends HttpServlet {
 
         // 2 четверть - треугольник под y = x + r
         if (x <= 0 && y >= 0) {
-            // Треугольник ограничен: x ≥ -r, y ≤ r, y ≤ x + r
             return x >= -r && y <= r && y <= x + r;
         }
 
         // 3 четверть - прямоугольник
         if (x <= 0 && y <= 0) {
-            // Прямоугольник: x ≥ -r/2, y ≥ -r
             return x >= -r/2 && y >= -r;
         }
 
         // 4 четверть - кусок круга радиусом r/2
         if (x >= 0 && y <= 0) {
-            // Круг радиусом r/2, центр (0,0)
             return (x * x + y * y) <= (r/2) * (r/2);
         }
 
         return false;
     }
 }
+
+
+//http://192.168.0.112:18080/web_2/

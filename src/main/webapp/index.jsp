@@ -16,8 +16,12 @@
     <script type="module" src="static/js/index.js"></script>
 </head>
 <body>
-<header>
-    <pre class="header">Колодей Елизавета<br>P3207<br>757493</pre>
+<header class="page-header">
+    <div class="header-content">
+        <h1>Колодей Елизавета Владимировна</h1>
+        <p>Группа: P3207</p>
+        <p>Вариант: 757493</p>
+    </div>
 </header>
     <p id="error_field" style="margin-top: 100px"></p>
     <div class="first-row">

@@ -1,15 +1,12 @@
 package com.server;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 public class PointBean implements Serializable {
     private double x;
     private double y;
     private double r;
     private boolean hit;
-    private LocalDateTime time;
-    private long calculationTime;
 
     public PointBean() {}
 
@@ -43,21 +40,5 @@ public class PointBean implements Serializable {
 
     public void setHit(boolean hit) {
         this.hit = hit;
-    }
-
-    public LocalDateTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
-
-    public long getCalculationTime() {
-        return calculationTime;
-    }
-
-    public void setCalculationTime(long calculationTime) {
-        this.calculationTime = calculationTime;
     }
 }

@@ -103,15 +103,14 @@ async function check_point(x, y, r, redirect) {
     }
 }
 
-function add_data_to_history(x, y, r, hit, execution_time, real_time) {
+function add_data_to_history(x, y, r, hit) {
     let table_ref = document.querySelector("#resTable tbody");
     let newRow = table_ref.insertRow(0);
     [
         x.toFixed(2).toString(),
         y.toFixed(2).toString(),
         r.toFixed(2).toString(),
-        hit ? "Попал" : "Промазал",
-        new Date().toLocaleTimeString()
+        hit ? "Попал" : "Промазал"
     ].forEach(value => newRow.insertCell().textContent = value);
 }
 
@@ -169,7 +168,6 @@ function load_points() {
 
 let selected_x = null;
 $('input[type="checkbox"]').on('change', function() {
-    // Снимаем отметку со всех других чекбоксов
     $('input[type="checkbox"]').not(this).prop('checked', false);
     selected_x = this;
 });
