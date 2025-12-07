@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="data" scope="session" class="com.server.Data"/>
-<div class="results resTableTwo">
+<div class="results resTableRes">
     <table id="resTable" class="resTable" >
         <thead>
         <tr>

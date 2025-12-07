@@ -110,7 +110,7 @@ function add_data_to_history(x, y, r, hit) {
         x.toFixed(2).toString(),
         y.toFixed(2).toString(),
         r.toFixed(2).toString(),
-        hit ? "Попал" : "Промазал"
+        hit ? "Попал" : "Промазал",
     ].forEach(value => newRow.insertCell().textContent = value);
 }
 

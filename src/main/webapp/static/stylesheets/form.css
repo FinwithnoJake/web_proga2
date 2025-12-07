@@ -19,13 +19,13 @@
 }
 
 .custom-button {
-    width: auto; /* Автоматическое определение ширины */
-    margin-right: 1%; /* Отступы между кнопками */
+    width: auto;
+    margin-right: 1%;
 }
 
 .submit-button {
     width: 200px;
-    margin: 20px auto; /* Центрирование кнопки */
+    margin: 20px auto;
     display: block;
 }
 
