@@ -169,9 +169,11 @@ function load_points() {
 let selected_x = null;
 $('input[type="checkbox"]').on('change', function() {
     $('input[type="checkbox"]').not(this).prop('checked', false);
+    $('.custom-button').removeClass('active-button');
+    const label = $(this).next('label');
+    label.addClass('active-button');
     selected_x = this;
 });
-
 
 
 
