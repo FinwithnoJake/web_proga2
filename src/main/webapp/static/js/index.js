@@ -33,7 +33,7 @@ document.getElementById('calculator').addEventListener('click', async function (
 document.getElementsByName("r").forEach(e => {
 
     e.addEventListener("change", () => {
-        clear_blank()
+        //clear_blank()
         selected_r = e.value;
         if(selected_r>=2 && selected_r <=5){
             draw_graph(Number(selected_r));

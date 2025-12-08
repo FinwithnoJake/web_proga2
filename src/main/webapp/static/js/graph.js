@@ -52,7 +52,7 @@ export function draw_point(point, color){
 
 export function draw_graph(r) {
     if (!calculator) init_calculator();
-    calculator.setBlank();
+    //calculator.setBlank();
 
     calculator.removeExpression({id: 'triangle'});
     calculator.removeExpression({id: 'rect'});

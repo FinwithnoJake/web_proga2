@@ -73,3 +73,4 @@ public class AreaCheckServlet extends HttpServlet {
 
 
 //http://192.168.0.112:18080/web_2/
+//спросить про различие в jsp и html
